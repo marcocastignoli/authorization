@@ -1,0 +1,13 @@
+{
+    "name": "marcocastignoli/Authorization",
+    "description": "A package to manage authorization in a cool way.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marco Castignoli",
+            "email": "marco@castignoli.it"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
