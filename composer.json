@@ -1,7 +1,7 @@
 {
     "name": "marcocastignoli/authorization",
     "description": "A package to manage authorization in a cool way.",
-    "version": "1.0.0",
+    "version": "1.0.0-alpha1",
     "license": "MIT",
     "authors": [
         {
