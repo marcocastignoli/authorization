@@ -1,6 +1,6 @@
 <?php
 
-namespace marcocastignoli\Authorization;
+namespace marcocastignoli\authorization;
 
 use Illuminate\Support\ServiceProvider;
 
