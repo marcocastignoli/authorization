@@ -58,9 +58,24 @@ php artisan migrate
 php artisan db:seed --class=marcocastignoli\\authorization\\AuthorizationSeeder
 ```
 
-### Authentication system
+## Authentication system
 Implement an authentication system, I suggest you to use "passport", for Lumen you can check this: https://github.com/dusterio/lumen-passport/
 
+## Documentation
+This package provides a simple way to create permissions for your application. There is a table called _authorizations_ in which you can set what users can do. These three sentences corrisponds to the table below.
+
+_The user with authorization 0 can see the id of everyone_
+
+_The user with authorization 1 can see the email and the username of everyone_
+
+_The user with authorization 2 can edit every field for his cars_
+
+| auth | object | field                    | method  | entity |
+|------|--------|--------------------------|---------|--------|
+| 0    | User   | id	                   | show    | all    |
+| 1    | User   | email          		   | show    | all    |
+| 1    | User   | username         		   | show    | all    |
+| 2    | Car    | *                        | post    | my     |
 
 ## License
 
