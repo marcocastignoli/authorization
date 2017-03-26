@@ -6,13 +6,14 @@ class CreateAuthorizationsTable extends Migration
 {
     public function up()
     {
-        Schema::create('authorizations', function(Blueprint $t)
+        Schema::create('authorizations', function(Blueprint $table)
         {
-            $t->increments('id')->unsigned();
-            $t->text('slug', 255);
-            $t->text('name', 255);
-            $t->text('description', 255);
-            $t->timestamps();
+            $table->increments('id')->unsigned();
+            $table->integer('auth');
+            $table->string('object', 255);
+            $table->string('field', 255);
+            $table->string('method', 255);
+            $table->string('entity', 255);
         });
     }
 
