@@ -62,20 +62,64 @@ php artisan db:seed --class=marcocastignoli\\authorization\\AuthorizationSeeder
 Implement an authentication system, I suggest you to use "passport", for Lumen you can check this: https://github.com/dusterio/lumen-passport/
 
 ## Documentation
-This package provides a simple way to create permissions for your application. There is a table called _authorizations_ in which you can set what users can do. These three sentences corrisponds to the table below.
+This package provides a simple way to create permissions for your application.
+
+### Writing permissions
+
+In the _users_ table you have to assign to the user an _auth_ level.
+
+In the _authorizations_ table you can create the permissions.
+- **auth**: a permission is referred to the user's auth level.
+- **object**: a permission is referred to a Lumen's model.
+- **field**: a permission is referred to a field of the object.
+- **method**: a permission is referred to the action of the request (get, put, post, del).
+- **entity**: a permission is referred to the entity of the request. (For example in "show _all_ users" the entity is "_all_".)
+
+
+#### Examples
+For each sentence you can see its implementation in the authorizations table.
 
 _The user with authorization 0 can see the id of everyone_
 
+| auth | object | field                    | method  | entity |
+|------|--------|--------------------------|---------|--------|
+| 0    | User   | id	                   | show    | all    |
+
 _The user with authorization 1 can see the email and the username of everyone_
+
+| auth | object | field                    | method  | entity |
+|------|--------|--------------------------|---------|--------|
+| 1    | User   | email          		   | show    | all    |
+| 1    | User   | username         		   | show    | all    |
 
 _The user with authorization 2 can edit every field for his cars_
 
 | auth | object | field                    | method  | entity |
 |------|--------|--------------------------|---------|--------|
-| 0    | User   | id	                   | show    | all    |
-| 1    | User   | email          		   | show    | all    |
-| 1    | User   | username         		   | show    | all    |
 | 2    | Car    | *                        | post    | my     |
+
+### Using permissions
+
+#### Create a new _Model_
+When you create a new model instead of extending _Model_, you have to extend _AuthorizationScopes_.
+
+Inside every model you can user the following scopes to filter your queries.
+- **show( $entity )**
+- **post( $entity, $arguments )**
+- **put( $entity, $arguments )**
+- **del( $entity, $id )**
+
+#### Examples
+```PHP
+// Get information about my user using the permission set in the authorizations table
+App\User::show("my")->get();
+
+// Edit all cars where id < 5
+App\Cars::where("id", "<", 5)->post("*", [
+    "color"=>"red"
+]);
+```
+All the scopes also work with relations, in every _Model_ you have to create a public parameter called _own_. That is the field linked with the user's id.
 
 ## License
 
