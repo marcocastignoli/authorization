@@ -3,6 +3,7 @@
 [![Total Downloads](https://poser.pugx.org/marcocastignoli/authorization/downloads)](https://packagist.org/packages/marcocastignoli/authorization)
 [![Latest Unstable Version](https://poser.pugx.org/marcocastignoli/authorization/v/unstable)](//packagist.org/packages/marcocastignoli/authorization)
 [![License](https://poser.pugx.org/marcocastignoli/authorization/license)](https://packagist.org/packages/marcocastignoli/authorization)
+
 A package to manage authorization for Lumen
 
 ## Dependencies
