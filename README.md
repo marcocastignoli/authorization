@@ -1,3 +1,5 @@
+![Logo](https://pichoster.net/images/2017/03/27/6070dfe38b6b04afa0504b832eef6c96.th.png)
+
 # authorization
 [![Latest Stable Version](https://poser.pugx.org/marcocastignoli/authorization/version)](https://packagist.org/packages/marcocastignoli/authorization)
 [![Total Downloads](https://poser.pugx.org/marcocastignoli/authorization/downloads)](https://packagist.org/packages/marcocastignoli/authorization)
