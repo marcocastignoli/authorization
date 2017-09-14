@@ -13,14 +13,17 @@ A package to manage authorization for Lumen
 * PHP >= 7.0
 * Lumen >= 5.3
 
+## Authentication system
+First, you have to implement an authentication system, I suggest you to use "passport", for Lumen you can check this: https://github.com/dusterio/lumen-passport/
+
 ## Installation via Composer
 
-First install Lumen if you don't have it yet:
+Install Lumen if you don't have it yet:
 ```bash
 $ composer create-project --prefer-dist laravel/lumen lumen-app
 ```
 
-Then install Lumen Passport (it will fetch Laravel Passport along):
+Then install "authorization":
 
 ```bash
 $ cd lumen-app
@@ -59,9 +62,6 @@ php artisan migrate
 # Seed the database
 php artisan db:seed --class=marcocastignoli\\authorization\\AuthorizationSeeder
 ```
-
-## Authentication system
-Implement an authentication system, I suggest you to use "passport", for Lumen you can check this: https://github.com/dusterio/lumen-passport/
 
 ## Documentation
 This package provides a simple way to create permissions for your application.
@@ -105,7 +105,7 @@ _The user with authorization 2 can edit every field for his cars_
 #### Create a new _Model_
 When you create a new model instead of extending _Model_, you have to extend _AuthorizationScopes_.
 
-Inside every model you can user the following scopes to filter your queries.
+Inside every model you can use the following scopes to filter your queries.
 - **show( $entity )**
 - **post( $entity, $arguments )**
 - **put( $entity, $arguments )**
